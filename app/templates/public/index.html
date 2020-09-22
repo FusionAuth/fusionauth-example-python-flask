@@ -1,0 +1,28 @@
+{% extends 'public/layout.html' %}
+
+{% block content %}
+    <h1 style="color: blue;">Login</h1>
+    <table>
+      <tr>
+        <td>
+          <div>
+            <button type="submit" id="login_button">Login</button>
+          </div>
+	</td>
+	<td>
+          <div>
+            <button type="submit" id="register_button">Register</button>
+	  </div>
+	</td>
+      </tr>
+    </table>
+
+    <script type="text/javascript">
+      document.getElementById("login_button").onclick = function () {
+          location.href = "{{login_uri | safe}}";
+      };
+      document.getElementById("register_button").onclick = function () {
+	  location.href = "{{register_uri | safe}}";
+      };
+    </script>
+{% endblock %}

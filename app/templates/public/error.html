@@ -1,0 +1,19 @@
+{% extends 'public/layout.html' %}
+
+{% block content %}
+  <body>
+    <h1 style="color: red;">Error</h1>
+    <p>Error Message: {{msg}}</p>
+    <p>Error Reason: {{reason}}</p>
+    <p>Error Description: {{description}}</p>
+
+    <div>
+     <button type="submit" id="home_button">Home</button>
+    </div>
+
+    <script type="text/javascript">
+      document.getElementById("home_button").onclick = function () {
+        location.href = "{{uri | safe}}";
+      };
+    </script>
+{% endblock %}

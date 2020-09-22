@@ -1,0 +1,17 @@
+{% extends 'public/layout.html' %}
+
+{% block content %}
+  <body>
+    <h1 style="color: blue;">Logout</h1>
+    <p>You are now logged out.</p>
+
+    <div>
+     <button type="submit" id="home_button">Home</button>
+    </div>
+
+    <script type="text/javascript">
+      document.getElementById("home_button").onclick = function () {
+        location.href = "{{uri | safe}}";
+      };
+    </script>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'public/layout.html' %}
+
+{% block content %}
+    <h1 style="color: blue;">Logged In</h1>
+    <p>You are now logged in.</p>
+
+    <p>Your user id: {{user_id}}</p>
+    <p>Your user id/email: {{email}}</p>
+    <p>Your user was created at: {{created_at}}</p>
+    <p>Your user was updated at: {{updated_at}}</p>
+    <p>You last logged in at: {{last_login}}</p>
+    <p>Your password was last updated at: {{pwd_updated_at}}</p>
+    <p>Password change required: {{pwd_change}}</p>
+    <div>
+     <button type="submit" id="logout_button">Logout</button>
+    </div>
+
+    <script type="text/javascript">
+      document.getElementById("logout_button").onclick = function () {
+        location.href = "{{uri | safe}}";
+      };
+    </script>
+{% endblock %}
