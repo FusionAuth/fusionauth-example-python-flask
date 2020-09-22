@@ -16,11 +16,11 @@ This is based on the [5 minute setup guide](https://fusionauth.io/docs/v1/tech/5
 * `. venv/bin/activate`
 * `pip3 install -r requirements.txt`
 * Create an application in FusionAuth
-  * Set the redirect url to `http://localhost:5000/callback`
-  * Set the logout url to `http://localhost:5000`
+  * Set the redirect url to `http://localhost:5000/oauth-callback`
+  * Note the client id and client secret
   * Register a user for this application
 * Create an API key in FusionAuth
-* Update `app/views.py` with the config values (look for the `#UPDATE ME` section)
+* Update `app/views.py` with the values gathered above (look for the `#UPDATE ME` section)
 
 ## Running
 
