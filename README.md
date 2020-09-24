@@ -30,5 +30,5 @@ Visit `http://localhost:5000`
 
 # Contributors
 
-* Nishant Trivedi did the initial implementation. 
+* [Nishant Trivedi/nishant009](https://github.com/nishant009) did the initial implementation. 
 
