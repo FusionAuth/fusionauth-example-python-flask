@@ -19,7 +19,7 @@ This is based on the [5 minute setup guide](https://fusionauth.io/docs/v1/tech/5
   * Set the redirect url to `http://localhost:5000/oauth-callback`
   * Note the client id and client secret
   * Register a user for this application
-* Create an API key in FusionAuth
+* Create an API key in FusionAuth. (Optional, only if you want to use the client for API operations.)
 * Update `app/views.py` with the values gathered above (look for the `#UPDATE ME` section)
 
 ## Running
