@@ -4,10 +4,12 @@ from flask import Flask, request, render_template, send_from_directory, session
 from fusionauth.fusionauth_client import FusionAuthClient
 import pkce
 
+#UPDATE ME
 api_key = ""
-client_id = ""
-client_secret = ""
+client_id = "85a03867-dccf-4882-adde-1a79aeec50df"
+client_secret = "7gh9U0O1wshsrVVvflccX-UL2zxxsYccjdw8_rOfsfE"
 host_ip = "localhost"
+#/UPDATE ME
 
 client = FusionAuthClient(api_key, "http://{}:9011".format(host_ip))
 
@@ -28,6 +30,16 @@ def index():
 
 @app.route("/oauth-callback")
 def oauth_callback():
+    if not request.args.get("code"):
+        uri = "http://{}:5000/".format(host_ip)
+        return render_template(
+            "public/error.html",
+            uri=uri,
+            msg="Failed to get auth token.",
+            reason=request.args["error_reason"],
+            description=request.args["error_description"]
+        )
+    
     tok_resp = client.exchange_o_auth_code_for_access_token_using_pkce(
         request.args.get("code"),
         "http://{}:5000/oauth-callback".format(host_ip),
@@ -57,7 +69,19 @@ def oauth_callback():
             reason=tok_resp.error_response["error_reason"],
             description=tok_resp.error_response["error_description"],
         )
-    print(user_resp.success_response)
+
+    registrations = user_resp.success_response["user"]["registrations"]
+    if not len(registrations) > 0 or registrations[0]["applicationId"] != client_id:
+        print("User not registered for the application.")
+        uri = "http://{}:5000/".format(host_ip)
+        return render_template(
+            "public/error.html",
+            uri=uri,
+            msg="User not registered for this application.",
+            reason="Application id not found in user object.",
+            description="Did you create a registration for this user and this application?"
+        )
+
     uri = "http://{}:9011/oauth2/logout?client_id={}".format(host_ip, client_id)
     return render_template(
         "public/logged_in.html",
