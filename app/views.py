@@ -71,7 +71,7 @@ def oauth_callback():
         )
 
     registrations = user_resp.success_response["user"]["registrations"]
-    if registrations is None or len(registrations) == 0 or not any(r["applicationId"] == client_id for r in requirements):
+    if registrations is None or len(registrations) == 0 or not any(r["applicationId"] == client_id for r in registrations):
         print("User not registered for the application.")
         uri = "http://{}:5000/".format(host_ip)
         return render_template(
