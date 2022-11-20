@@ -5,9 +5,9 @@ from fusionauth.fusionauth_client import FusionAuthClient
 import pkce
 
 #UPDATE ME
-api_key = ""
-client_id = "85a03867-dccf-4882-adde-1a79aeec50df"
-client_secret = "7gh9U0O1wshsrVVvflccX-UL2zxxsYccjdw8_rOfsfE"
+api_key = "this_really_should_be_a_long_random_alphanumeric_value_but_this_still_works"
+client_id = "e9fdB985-9173-4e01-9d73-ac2d60d1dc8e"
+client_secret = "super-secret-secret-that-should-be-regenerated-for-production"
 host_ip = "localhost"
 #/UPDATE ME
 
@@ -71,8 +71,19 @@ def oauth_callback():
         )
 
     registrations = user_resp.success_response["user"]["registrations"]
-    if registrations is None or len(registrations) == 0 or not any(r["applicationId"] == client_id for r in registrations):
-        print("User not registered for the application.")
+    if registrations is None or len(registrations) == 0:
+        print("This user is not registered for any applications.")
+        uri = "http://{}:5000/".format(host_ip)
+        return render_template(
+            "public/error.html",
+            uri=uri,
+            msg="User not registered for this application.",
+            reason="Application id not found in user object.",
+            description="Did you create a registration for this user and this application?"
+        )
+
+    if not any(r["applicationId"].lower() == client_id.lower() for r in registrations):
+        print("This user is not registered for this application.")
         uri = "http://{}:5000/".format(host_ip)
         return render_template(
             "public/error.html",
