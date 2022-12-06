@@ -35,6 +35,8 @@ For now, get FusionAuth in Docker up and running (via `docker-compose up`) if it
 
 You can also register a new user for this application and will be automatically logged in after.
 
+Log into the [FusionAuth admin screen](http://localhost:9011) with a different browser or incognito window using the admin user credentials ("admin@example.com"/"password") to explore the admin user experience.
+
 # Contributors
 
 * [Nishant Trivedi/nishant009](https://github.com/nishant009) did the initial implementation. 
