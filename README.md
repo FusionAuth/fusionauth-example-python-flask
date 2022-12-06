@@ -33,6 +33,7 @@ For now, get FusionAuth in Docker up and running (via `docker-compose up`) if it
 * `python3 run.py` (this will block the current terminal)
 * [Open a browser](http://localhost:5000) and log in using our user's credentials ("richard@example.com"/"password").
 
+You can also register a new user for this application and will be automatically logged in after.
 
 # Contributors
 

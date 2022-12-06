@@ -56,12 +56,16 @@
                     "authorizedRedirectURLs": ["http://localhost:5000/oauth-callback"],
                     "clientSecret": "super-secret-secret-that-should-be-regenerated-for-production",
                     "logoutURL": "http://localhost:5000/logout",
-                    "enabledGrants": ["authorization_code"]
+                    "enabledGrants": ["authorization_code"],
+                    "requireRegistration" : true
                 },
                 "jwtConfiguration": {
                   "enabled": true,
                   "accessTokenKeyId": "#{asymmetricKeyId}",
                   "idTokenKeyId": "#{asymmetricKeyId}"
+                },
+                "registrationConfiguration": {
+                  "enabled": true
                 }
               }
             }
