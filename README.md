@@ -7,7 +7,7 @@ You will need the following things properly installed on your computer.
 * [Git](http://git-scm.com/): Presumably you already have this on your machine if you are looking at this project locally; if not, use your platform's package manager to install git, and `git clone` this repo.
 * [Python3](https://python.org): Python3 can be installed via a variety of methods
 * `pip3`: The Python package manager should be installed as part of your Python install, but if not, use your Python install method's mechanism to install this package so that the Python dependencies can be pulled in.
-* OPTIONAL: [Docker](https://www.docker.com): If you wish to run FusionAuth from within a Docker container.
+* [Docker](https://www.docker.com): For standing up FusionAuth from within a Docker container. (You can [install it other ways](https://fusionauth.io/docs/v1/tech/installation-guide/)(, but for this example you'll need Docker.)
 
 ## Installation
 * `git clone https://github.com/FusionAuth/fusionauth-example-python-flask`
@@ -31,7 +31,7 @@ For now, get FusionAuth in Docker up and running (via `docker-compose up`) if it
 ## Running / Development
 
 * `python3 run.py` (this will block the current terminal)
-* Open a browser to `http://localhost:5000`
+* [Open a browser](http://localhost:5000) and log in using our user's credentials ("richard@example.com"/"password").
 
 
 # Contributors
