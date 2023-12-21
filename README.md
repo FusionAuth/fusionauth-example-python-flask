@@ -1,3 +1,5 @@
+**This repo is out of date and is archived. Check out [an updated tutorial on using FusionAuth with Flask](https://fusionauth.io/docs/quickstarts/quickstart-python-flask-web) or [the updated GitHub repository](https://github.com/FusionAuth/fusionauth-quickstart-python-flask-web).**
+
 # Example: Using Python3 with FusionAuth
 This project contains an example project that illustrates using FusionAuth with Python3 Flask.
 
